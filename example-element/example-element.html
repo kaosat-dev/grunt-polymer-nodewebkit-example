@@ -1,21 +1,21 @@
-<polymer-element name="foo-element" on-mousedown="{{mousedown}}" attributes="bar">
+<polymer-element name="example-element" on-mousedown="{{mousedown}}" attributes="bar">
   <template>
   <div>Oh yes , this custom (polymer) element works !! {{bar}}</div>
   </template>
   <script>
-    Polymer('foo-element', {
+    Polymer('example-element', {
       bar: 42,
       created:function()
       {
-        console.log("foo-elem created", this);
+        console.log("example-element created", this);
       },
       ready:function()
       {
-        console.log("foo-elem ready", this);
+        console.log("example-element ready", this);
       },
       enteredView:function()
       {
-        console.log("foo-elem enteredView", this);
+        console.log("example-element enteredView", this);
       },
       mousedown:function(event)
       {
