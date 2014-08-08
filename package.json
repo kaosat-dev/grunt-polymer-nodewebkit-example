@@ -17,15 +17,18 @@
     "min_height": 480
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-node-webkit-builder": "~0.1.13",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-usemin": "~2.0.2",
-    "grunt-exec": "~0.4.2",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-watch": "~0.5.3",
-    "vulcanize": "~0.1.7",
-    "grunt-text-replace": "~0.3.10",
-    "grunt-contrib-clean": "~0.5.0"
+    "grunt": "",
+    "grunt-node-webkit-builder": "",
+    "grunt-contrib-uglify": "",
+    "grunt-usemin": "",
+    "grunt-exec": "",
+    "grunt-contrib-copy": "",
+    "grunt-contrib-watch": "",
+    "vulcanize": "",
+    "grunt-text-replace": "",
+    "grunt-contrib-clean": ""
+  },
+  "dependencies": {
+    "grunt-rename": "^0.1.3"
   }
 }
