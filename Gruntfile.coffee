@@ -44,7 +44,7 @@ module.exports = (grunt) ->
 
     nodewebkit:
       options:
-        version: "v0.10.1" #0.8.2 0.6.3 works with polymer but unresolved does not get removed, does not work from 0.7.0 onwards, 0.8.2 works only partially (wrong order of events)
+        version: "v0.7.5" #0.8.2 0.6.3 works with polymer but unresolved does not get removed, does not work from 0.7.0 onwards, 0.8.2 works only partially (wrong order of events)
         build_dir: "_tmp/desktop" # Where the build version of my node-webkit app is saved
         mac: false # We want to build it for mac
         win: false # We want to build it for win
@@ -72,21 +72,18 @@ module.exports = (grunt) ->
         src: ["build/<%= currentBuild %>/index.html"]
         overwrite:true
         replacements: [
-          from: "../../components/platform/"
+          from: "../../components/"
           to: ""
         ,
           from: "../components/"
           to: ""
+        ,
+          from: '<script src="polymer/polymer.js"></script>'
+          to: '<script src="polymer.js"></script>'
+        ,
+          from: '<script src="platform/platform.js"></script>'
+          to: '<script src="platform.js"></script>'
         ]
-
-      bli:
-        src: ['components/platform/platform.js']
-        dest: 'components/platform/platform_.js',  
-        replacements: [
-              from: 'global',                 
-              to: 'fakeGlobal' 
-        ] 
-
       standalone:
         src: ["build/<%= currentBuild %>/platform.js"]
         dest: "build/<%= currentBuild %>/platform.js"
@@ -105,9 +102,7 @@ module.exports = (grunt) ->
         ]
       standalone:
         files: [
-          {src: 'components/platform/platform.js.map',dest: 'build/<%= currentBuild %>/platform.js.map'}
-          src: "components/platform/platform.js"
-          dest: "build/<%= currentBuild %>/platform.js"
+          {src: 'components/platform/platform.js.map',dest: 'build/<%= currentBuild %>/platform.js.map'},{src: 'components/platform/platform.js', dest: 'build/<%= currentBuild %>/platform.js'},{src: "components/polymer/polymer.js", dest: "build/<%= currentBuild %>/polymer.js"}
         ]
       desktop:
         files: [
@@ -123,7 +118,7 @@ module.exports = (grunt) ->
 
     rename:
       desktopFinal:
-        src: '_tmp/desktop/releases/polymer-nw-example/'
+        src: '_tmp/desktop/releases/polymer-nodewebkit-example/linux64'
         dest: 'build/<%= currentBuild %>/'
 
     htmlmin:
