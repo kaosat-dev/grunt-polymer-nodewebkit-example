@@ -2,10 +2,17 @@
 
 <polymer-element name="example-element" on-mousedown="{{mousedown}}" attributes="bar">
   <template>
-  <div>Oh yes , this custom (polymer) element works !! {{bar}}</div>
+    <div>Oh yes , this custom (polymer) element works !! {{bar}}</div>
+    <div>I can also display templated text : {{foo}} </div>
+    <input type="checkbox" checked="{{flag}}" > </input>
+    <template if="{{flag}}">
+        I am a conditional template
+    </template>
   </template>
   <script>
     Polymer('example-element', {
+      foo: "this is a templated string",
+      flag: true,
       bar: 42,
       created:function()
       {
